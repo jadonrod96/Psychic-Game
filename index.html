@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Psychic Game </title>
+</head>
+
+<!-- User make a choice
+Computer make one decision per round
+Give the user 9 tries to guess the word
+Record after the 9th try a loss and reset the game or record a win when the user guesses correctly -->
+
+
+
+<body>
+    <div>
+    <h1> The Psychic Game </h1>
+    <p id="directions-text"> Guess what letter I'm thinking of</p>
+    <p id="wins-text"></p>
+    <p id="loses-text"></p>
+    <p id="guessleft-text"></p>
+    <p id="userChoice-text"></p>
+
+    <script> type="text/javascript"
+    // Create array for computer choices to choose from
+    var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    // creating variables to hold whether the user won, or lost, and how many guesses are left.
+    var wins = 0;
+    var loses = 0;
+    var guesses = 10;
+
+    var directionsText = document.getElementById("directions-text");
+    var userchoiceText = document.getElementById("wins-text");
+    var losesText = document.getElementById("loses-text");
+    var 
+
+    document.onkeyup = function () {
+    var userGuess = event.key;
+        console.log(userGuess);
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+    }
+    
+    
+    </script>
+    
+</body>
+</html>
