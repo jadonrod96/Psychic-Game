@@ -1,59 +1,60 @@
-    // Create array for computer choices to choose from
-    var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-   // have the computer choose a random letter
-    var randomLetter = Math.floor(Math.random() * alphabet.length);
-    var computerChoice = alphabet[randomIndex];
-    // creating variables to hold whether the user won, or lost, and how many guesses are left.
-    var wins = 0;
-    var loses = 0;
-    var guesses = 10;
-    var guessSoFar = [];
+var winCount = 1;
+var lossCount = 0;
+var guessesRemaining = 10;
+var guessedLetters = [];
 
-    var directionsText = document.getElementById("directions-text");
-    var userchoiceText = document.getElementById("wins-text");
-    var losesText = document.getElementById("loses-text");
+// set up options for the computer to choose from.
+var alphabet =
+    ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q"
+    ,"r","s","t","u","v","w","x","y","z"];
 
-    // adding listener to document keys that are pressed 
-    document.onkeypress = function(event) {
-    var userGuess = event.key;
+// computer random generator
+var randomIndex = Math.floor(Math.random() * alphabet.length);
+var computerChoice = alphabet[randomIndex];
 
-    var regexp = /[a-z]/gi;
+console.log(computerChoice);
+
+// listener function when keys are pressed
+document.onkeyup = function(event) {
+  var userChoice = event.key;
+  // make sure the user selects a value a-z
+  var regexp = /[a-z]/gi;
     if (!regexp.test(userChoice)) {
       alert("please enter a letter");
     }
     else {
       console.log(userChoice);
     }
-    //reset game when loses
-    if (guesses <= 0) {
-        loses++;
-        document.getElementById("loses").innerHTML = loses++;
-        console.log("You lost!");
-        alert("You lost!");
-        guesses = 10;
-        guessSoFar = [];
-        document.getElementById("guessSoFar").innerHTML = guessSoFar;
-        document.getElementById("guesses").innerHTML = 10;
-        randomIndex = Math.floor(Math.random() * alphabet.length);
-        computerChoice = alphabet[randomIndex];
-        console.log(computerChoice);
-      }
-      // Compute and document whether user wins or loses
-      if (computerChoice === userChoice) {
-        console.log("You won!");
-        alert("You won!");
-        document.getElementById("wins").innerHTML = wins++;
-        guessSoFar = [];
-        document.getElementById("guessSoFar").innerHTML = guessSoFar;
-        randomIndex = Math.floor(Math.random() * alphabet.length);
-        computerChoice = alphabet[randomIndex];
-        console.log(computerChoice);
-        guesses = 10;
-        document.getElementById("guesses").innerHTML = 10;
-      } else {
-        console.log("Guess again!");
-        document.getElementById("guesses").innerHTML = guesses--;
-        guessSoFar.push(userChoice);
-        document.getElementById("guessSoFar").innerHTML = guessSoFar;
-      }
-  }
+    // reset option if the user loses
+    if (guessesRemaining <= 0) {
+      lossCount++;
+      document.getElementById("lossCount").innerHTML = lossCount++;
+      console.log("You lost!");
+      alert("You lost!");
+      guessesRemaining = 10;
+      guessedLetters = [];
+      document.getElementById("guessedLetters").innerHTML = guessedLetters;
+      document.getElementById("guessesRemaining").innerHTML = 10;
+      randomIndex = Math.floor(Math.random() * alphabet.length);
+      computerChoice = alphabet[randomIndex];
+      console.log(computerChoice);
+    }
+    // chooses whether user won or loss
+    if (computerChoice === userChoice) {
+      console.log("You won!");
+      alert("You won!");
+      document.getElementById("winCount").innerHTML = winCount++;
+      guessedLetters = [];
+      document.getElementById("guessedLetters").innerHTML = guessedLetters;
+      randomIndex = Math.floor(Math.random() * alphabet.length);
+      computerChoice = alphabet[randomIndex];
+      console.log(computerChoice);
+      guessesRemaining = 10;
+      document.getElementById("guessesRemaining").innerHTML = 10;
+    } else {
+      console.log("Guess again!");
+      document.getElementById("guessesRemaining").innerHTML = guessesRemaining--;
+      guessedLetters.push(userChoice);
+      document.getElementById("guessedLetters").innerHTML = guessedLetters;
+    }
+}

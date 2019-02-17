@@ -1,30 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Psychic Game </title>
+  <title>The Pyschic Game</title>
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<!-- User make a choice
-Computer make one decision per round
-Give the user 9 tries to guess the word
-Record after the 9th try a loss and reset the game or record a win when the user guesses correctly -->
+<body background = "assets/images/questionmark_blue.png">
+  <div class="header">
+    <div class="row">
+      <h1>Are you a psychic?</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <h3>Guess what letter I'm thinking of...</h3>
+    </div>
+
+      <div class="col-md-12, info">
+        Wins:
+      </div>
 
 
 
-<body>
-    <div>
-    <h1> The Psychic Game </h1>
-    <p id="directions-text"> Guess what letter I'm thinking of</p>
-    <p id="wins-text"></p>
-    <p id="loses-text"></p>
-    <p id="guessleft-text"></p>
-    <p id="userChoice-text"></p>
+      <div class="col-md-12">
+        <div class="populate" id="winCount">
+          0
+        </div>
+      </div>
 
-    <script src="assets/javascript/game.js">
-    </script>
     
-</body>
-</html>
+      <div class="col-md-12, info">
+        Losses:
+      </div>
+    
+
+   
+      <div class="col-md-12">
+        <div class="populate" id="lossCount">
+          0
+        </div>
+      </div>
+    
+
+    
+      <div class="col-md-12, info">
+        Guesses Remaining:
+      </div>
+    
+
+    
+      <div class="col-md-12">
+        <div class="populate" id="guessesRemaining">
+          10
+        </div>
+      </div>
+    
+
+    
+      <div class="col-md-12, info">
+        Your Guesses:
+      </div>
+    
+
+    
+      <div class="col-md-12">
+        <div class="populate" id="guessedLetters">
+          guesses..
+        </div>
+      </div>
+    
+
+  </div>
+  <script src="assets/javascript/game.js"></script>
+  </body>
